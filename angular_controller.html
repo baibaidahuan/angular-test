@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS控制器</title>
+</head>
+<body ng-app="app">
+	<div ng-controller="MyController">
+		Your name: <input type="text" ng-model="username">
+		<button ng-click="sayHello()">sayHello</button>
+		<hr>
+		<span ng-bind="greeting"></span>
+		{{greeting}}
+	</div>
+</body>
+<script type="text/javascript" src="js/angular/angular.js"></script>
+<script type="text/javascript">
+	// 控制器不仅声明属性也可以声明方法，如下所示
+	angular.module("app",[])
+	.controller("MyController",function($scope){
+		$scope.username = 'Chenjian';
+		$scope.sayHello = function(){
+			$scope.greeting='Hello!'+$scope.username;
+		};
+	})
+</script>
+</html>
